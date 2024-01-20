@@ -20,19 +20,17 @@ while i < x:
     operador = input("\n Ingrese el operador")
     valor2 = int(input("\n Ingrese el valor[3]"))
     if operador == "+":
-        result = valor + valor2
+        resultsuma = valor + valor2
     elif operador == "-":
-        result = valor - valor2
+        resultresta = valor - valor2
     elif operador == '*':
-        result = valor * valor2
+        resultmul = valor * valor2
     elif operador == '/':
-        result = valor / valor2
+        resultdiv = valor / valor2
     i += 1
 
-while result != 0:
-    if operador == '+':
-        print(result)
-print("Programa terminado")
+print('su suma es:', resultsuma)
+print('su mult es:', resultmul)
 
 #while i <= 10:
 #    print(i)
