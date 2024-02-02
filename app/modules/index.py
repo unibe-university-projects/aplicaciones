@@ -22,7 +22,29 @@ def variable_metodos():
             return jsonify('json no es correcto')
         return jsonify('quien eres ? : ' + nombre + apellido)
     elif request.method == 'GET':
-        return jsonify('soy get')
+        try:
+            # Crear un cursor para ejecutar consultas
+            cur = conexion.cursor()
+            query = "SELECT * FROM person"
+            cur.execute(query)
+            formulario = cur.fetchall()
+
+            data = [{'id': row[0], 'nombre': row[1], 'apellido': row[2]} for row in formulario]
+
+            # Cerrar el cursor y la conexión
+            cur.close()
+            conexion.close()
+
+            # Devolver la información en formato JSON
+            return jsonify({'personas': data})
+
+        except Exception as e:
+            # Manejar cualquier excepción que pueda ocurrir
+            return jsonify({'error': str(e)})
+
+
+# def get_person()
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8081, debug=True)
