@@ -20,3 +20,39 @@
 - import django
 - django.get_version()
 - exit()
+- django-admin startproject webapp
+- cd webapp
+- python.exe manage.py migrate
+- python.exe manage.py runserver
+- python.exe manage.py startapp blog
+- python.exe manage.py makemigrations blog
+- python.exe manage.py blog sqlmigrate 0001
+- python.exe manage.py migrate
+- python.exe manage.py createsuperuser
+- python.exe manage.py shell
+- from django.contrib.auth.models import User
+- from blog.models import Post
+- us =User.objects.get(username='steveen')
+- post = Post(title ='titulo',slug='afuera',body='es un post',author=us)
+- post.save()
+
+# actualiza
+
+## Obtener el objeto Post que quieres actualizar
+post = Post.objects.get(title='titulo')
+
+## Actualizar los campos necesarios
+post.title = 'Nuevo título'
+post.body = 'Nuevo cuerpo del post'
+
+# Guardar los cambios
+post.save()
+
+# Eliminar
+
+## Obtener el objeto Post que quieres eliminar
+post = Post.objects.get(title='titulo')
+
+## Eliminar el objeto
+post.delete()
+
