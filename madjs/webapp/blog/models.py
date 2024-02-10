@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class PublishedField(models.Model):
+class PublishedManager(models.Manager):
     def get_queryset(self):
-        return (super(PublishedField, self).
+        return (super(PublishedManager, self).
                 get_queryset().filter(status='published'))
 
 
@@ -26,7 +26,7 @@ class Post(models.Model):
     update = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     object = models.Manager()
-    published = PublishedField()
+    published = PublishedManager()
 
     class Meta:
         ordering = ('-publish',)
