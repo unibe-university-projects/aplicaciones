@@ -16,6 +16,7 @@
 - virtualenv webapp
 - cd webapp
 - pip install Django
+- - cd el viratual y activar el vitualizador
 - python 
 - import django
 - django.get_version()
