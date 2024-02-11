@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'gestion_facturas.apps.GestionFacturasConfig',
+    'gestion_gastos.apps.GestionGastosConfig',
+    'gestion_pagos.apps.GestionPagosConfig',
+    'gestion_personas.apps.GestionPersonasConfig',
+    'gestion_usuarios.apps.GestionUsuariosConfig',
 ]
 
 MIDDLEWARE = [
