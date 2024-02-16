@@ -56,3 +56,8 @@ post = Post.objects.get(title='titulo')
 ## Eliminar el objeto
 post.delete()
 
+# .env
+
+- pip install python-dotenv
+
+- pip install psycopg2
