@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('list-gastos/', views.list, name='list_gastos'),
-    path('crear/', views.crear_gasto, name='crear_gasto'),
+    path('crear/', views.crear, name='crear_gasto'),
    # path('editar/<int:id>/', views.editar_gasto, name='editar_gasto'),
     #path('eliminar/<int:id>/', views.eliminar_gasto, name='eliminar_gasto'),
 ]
