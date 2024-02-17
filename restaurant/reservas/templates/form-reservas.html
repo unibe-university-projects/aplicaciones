@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Crear Nuevo Revservas</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- ingreso -->
+        <label type="datetime" for="ingreso">ingreso:</label><br>
+        <input type="datetime-local" id="ingreso" name="ingreso"><br>
+
+        <!-- salida -->
+        <label for="salida">Fecha salida:</label><br>
+        <input type="datetime-local" id="salida" name="salida"><br>
+
+
+        <!-- confirmacion -->
+        <label for="confirmacion">confirmacion</label><br>
+        <input type="checkbox" id="confirmacion" name="confirmacion"><br>
+
+
+        <!-- caducidad -->
+        <label for="caducidad">Fecha caducidad reservacion:</label><br>
+        <input type="datetime-local" id="caducidad" name="caducidad"><br>
+
+        <!-- esrtado -->
+        <label for="estado">estado</label><br>
+        <input type="checkbox" id="estado" name="estado"><br>
+
+
+        <!-- esrtado -->
+        <label for="usuario">Usuario</label><br>
+        <select name="usuario" id="usuario">
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+
+
+        <button type="submit">Crear reserva</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Reserva</title>
+</head>
+<body>
+    <h1>Editar Reserva</h1>
+    <form method="POST" id="editar-reserva-form">
+        {% csrf_token %}
+        <label for="id_ingreso">Ingreso:</label>
+        <input type="datetime-local" id="id_ingreso" name="ingreso" value="{{ reserva.ingreso|date:'Y-m-d\TH:i' }}">
+        <br>
+        <label for="id_salida">Salida:</label>
+        <input type="datetime-local" id="id_salida" name="salida" value="{{ reserva.salida|date:'Y-m-d\TH:i' }}">
+        <br>
+        <label for="id_confirmacion">Confirmación:</label>
+        <input type="checkbox" id="id_confirmacion" name="confirmacion" {% if reserva.confirmacion %}checked{% endif %}>
+        <br>
+        <label for="id_caducidad">Caducidad:</label>
+        <input type="datetime-local" id="id_caducidad" name="caducidad" value="{{ reserva.caducidad|date:'Y-m-d\TH:i' }}">
+        <br>
+        <label for="id_estado">Estado:</label>
+        <input type="checkbox" id="id_estado" name="estado" {% if reserva.estado %}checked{% endif %}>
+        <br>
+        <label for="id_usuario">Usuario:</label>
+        <select name="usuario" id="id_usuario">
+            {% for user in users %}
+            <option value="{{ user.id }}" {% if user.id == reserva.usuario_id %}selected{% endif %}>{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
